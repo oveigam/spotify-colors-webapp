@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* evita animaciones cortadas */
+.animation {
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.boton {
+  padding: 1em 1.5em;
+  border: 0;
+  cursor: pointer;
+}
