@@ -8,27 +8,46 @@ import Navigation from './Navigtaion';
 
 const sidebar = {
     open: (height = 1000) => ({
-        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+        clipPath: `circle(${height}px at 40px 40px)`,
+        height: height,
         transition: {
-            type: "spring",
-            stiffness: 20,
-            restDelta: 2
+            clipPath: {
+                type: "spring",
+                stiffness: 40,
+                restDelta: 2
+            }
         }
     }),
     closed: {
         clipPath: "circle(30px at 40px 40px)",
+        height: 78,
         transition: {
-            type: "spring",
-            stiffness: 400,
-            damping: 40
+            clipPath: {
+                type: "spring",
+                stiffness: 400,
+                damping: 40
+            },
+            height: {
+                type: "spring",
+                stiffness: 250,
+                damping: 40
+            }
         }
     },
     hovered: {
-        clipPath: "circle(33px at 40px 40px)",
+        clipPath: "circle(32px at 40px 40px)",
+        height: 78,
         transition: {
-            type: "spring",
-            stiffness: 400,
-            damping: 40
+            clipPath: {
+                type: "spring",
+                stiffness: 300,
+                damping: 40
+            },
+            height: {
+                type: "spring",
+                stiffness: 250,
+                damping: 40
+            }
         }
     }
 };
