@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import useTheme from '../../hooks/useTheme';
 import styles from '../../styles/Navigation.module.scss';
 import SidebarToggle from './SidebarToggle';
-import Navigation from './Navigtaion';
+import Navigation from './Navigation';
 
 const sidebar = {
     open: (height = 1000) => ({
