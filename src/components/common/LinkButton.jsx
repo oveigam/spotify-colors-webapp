@@ -2,9 +2,9 @@
 import Color from 'color';
 import { motion } from 'framer-motion';
 import { darkTheme, lightTheme } from '../../util/themes';
-import useTheme from './../../hooks/useTheme';
+import useTheme from '../../hooks/useTheme';
 
-const Button = (props) => {
+const LinkButton = (props) => {
     const theme = useTheme()
 
     const color = Color(props.color ? props.color : theme.primary)
@@ -13,16 +13,17 @@ const Button = (props) => {
     const style = props.style ? { backgroundColor: color, color: textColor, ...props.style, } : { backgroundColor: color, color: textColor }
 
     return (
-        <motion.button
-            className="boton"
+        <motion.a
+            className="boton-link"
+            draggable="false"
             {...props}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: .95 }}
             style={style}
         >
             {props.children}
-        </motion.button>
+        </motion.a>
     )
 }
 
-export default Button;
+export default LinkButton;

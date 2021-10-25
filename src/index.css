@@ -18,8 +18,12 @@ code {
   perspective: 1000;
 }
 
-.boton {
+.boton-link {
+  display: inline-block;
   padding: 1em 1.5em;
   border: 0;
   cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-weight: bold;
 }

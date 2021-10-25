@@ -1,7 +1,7 @@
 
 export const darkTheme = {
     surface1: '#121212',
-    surface2: "#1E1E1E",
+    surface2: "#2d2d2d",
     text: '#f0f0fa',
     primary: '#fb6376'
 }

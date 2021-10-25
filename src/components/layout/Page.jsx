@@ -8,12 +8,12 @@ const Page = (props) => {
     return (
         <div style={[
             {
-                minHeight: '100vh',
+                height: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
                 ...styles
             },
             props.center && {
-                display: 'flex',
-                flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center'
             },

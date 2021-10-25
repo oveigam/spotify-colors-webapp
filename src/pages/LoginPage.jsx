@@ -1,7 +1,8 @@
-import Button from '../components/common/Button';
+import LinkButton from '../components/common/LinkButton';
 import useTheme from './../hooks/useTheme';
 import Page from './../components/layout/Page';
 import { motion } from 'framer-motion';
+import spotifyAuthUrl from '../util/spotifyAuthUrl';
 
 const lines = {
     hidden: {
@@ -33,6 +34,7 @@ const LoginPage = () => {
                 initial={{ y: '-60vh' }}
                 animate={{ y: 0 }}
                 transition={{ duration: .4, type: 'spring', stiffness: 45 }}
+                onClick={() => localStorage.setItem("accessToken", "holitas")}
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <motion.circle
@@ -79,12 +81,14 @@ const LoginPage = () => {
                 animate={{ y: 0 }}
                 transition={{ y: { duration: .4, type: 'spring', stiffness: 45 } }}
             >
-                <Button
+                <LinkButton
                     style={{ fontSize: '1.2rem', marginTop: 25 }}
+                    href={spotifyAuthUrl}
                 >
                     LOGIN WITH SPOTIFY
-                </Button>
+                </LinkButton>
             </motion.div>
+
         </Page>
     );
 }
