@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { RiHome2Line, RiAlbumLine, RiPlayListLine } from "react-icons/ri";
-import { MdOutlineRecordVoiceOver, MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdOutlineRecordVoiceOver, MdOutlineDashboardCustomize, MdMusicNote } from "react-icons/md";
 import NavigationLink from "./NavigationLink";
 
 const variants = {
@@ -12,13 +12,14 @@ const variants = {
     }
 };
 
-const Navigation = () => (
+const Navigation = (props) => (
     <motion.ul variants={variants}>
-        <NavigationLink to="/" Icon={RiHome2Line}>Inicio</NavigationLink>
-        <NavigationLink to="/playlists" Icon={RiPlayListLine}>Playlists</NavigationLink>
-        <NavigationLink to="/artists" Icon={MdOutlineRecordVoiceOver}>Artistas</NavigationLink>
-        <NavigationLink to="/albums" Icon={RiAlbumLine}>Álbumes</NavigationLink>
-        <NavigationLink to="/customize" Icon={MdOutlineDashboardCustomize}>Personalizar</NavigationLink>
+        <NavigationLink to="/" toggleOpen={props.toggleOpen} Icon={RiHome2Line}>Inicio</NavigationLink>
+        <NavigationLink to="/playlists" toggleOpen={props.toggleOpen} Icon={RiPlayListLine}>Playlists</NavigationLink>
+        <NavigationLink to="/artists" toggleOpen={props.toggleOpen} Icon={MdOutlineRecordVoiceOver}>Artistas</NavigationLink>
+        <NavigationLink to="/albums" toggleOpen={props.toggleOpen} Icon={RiAlbumLine}>Álbumes</NavigationLink>
+        <NavigationLink to="/songs" toggleOpen={props.toggleOpen} Icon={MdMusicNote}>Canciones</NavigationLink>
+        <NavigationLink to="/customize" toggleOpen={props.toggleOpen} Icon={MdOutlineDashboardCustomize}>Personalizar</NavigationLink>
     </motion.ul>
 );
 

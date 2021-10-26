@@ -85,7 +85,7 @@ export const AuthProvider = ({ children }) => {
     }, [expirationDate, refreshToken, refreshAuthorization])
 
     return (
-        <authContext.Provider value={{ accessToken, setAccessToken, refreshToken, setRefreshToken, expirationDate, setExpirationDate }}>
+        <authContext.Provider value={{ accessToken, setAccessToken, refreshToken, setRefreshToken, expirationDate, setExpirationDate, spotifyReady: !!spotify.getAccessToken() }}>
             {children}
         </authContext.Provider>
     );

@@ -12,16 +12,16 @@ const variants = {
         }
     },
     closed: {
-        y: 50,
+        // y: -25,
         opacity: 0,
         transition: {
-            y: { stiffness: 1000 }
+            // y: { stiffness: 500 }
         }
     }
 };
 
 const NavigationLink = (props) => {
-    const { Icon, to } = props
+    const { Icon, to, toggleOpen } = props
 
     const theme = useTheme()
 
@@ -35,7 +35,11 @@ const NavigationLink = (props) => {
             variants={variants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => history.push(to)}
+            onClick={() => {
+                toggleOpen()
+                history.push(to)
+            }
+            }
             style={{
                 color: active ? theme.primary : theme.text,
                 fontWeight: active && 'bold'

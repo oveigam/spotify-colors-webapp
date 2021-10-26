@@ -1,11 +1,11 @@
 
 
 const CustomizePage = () => {
-    return ( 
+    return (
         <div>
             customize
         </div>
-     );
+    );
 }
- 
+
 export default CustomizePage;

@@ -7,6 +7,17 @@ $sidebar-toggle-height: 78px;
     padding-top: $sidebar-toggle-height;
 }
 
+.backdrop {
+    height: 100vh;
+    width: calc( 100vw - #{$sidebar-width});
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: $sidebar-width;
+    bottom: 0;
+    cursor: pointer;
+}
+
 .sidebar {
     position: absolute;
     top: 0;
@@ -14,6 +25,7 @@ $sidebar-toggle-height: 78px;
     bottom: 0;
     width: $sidebar-width;
     height: $sidebar-toggle-height;
+    z-index: 5;
 }
 
 .sidebarBackground {
@@ -22,6 +34,7 @@ $sidebar-toggle-height: 78px;
     left: 0;
     bottom: 0;
     width: $sidebar-width;
+    z-index: 5;
 }
 
 .sidebarButton {
@@ -39,6 +52,7 @@ $sidebar-toggle-height: 78px;
     height: 50px;
     border-radius: 50%;
     background: transparent;
+    z-index: 5;
 }
 
 ul {
@@ -49,6 +63,7 @@ ul {
     position: absolute;
     top: 100px;
     width: calc(#{$sidebar-width} - 80px );
+    z-index: 5;
 }
 
 li {

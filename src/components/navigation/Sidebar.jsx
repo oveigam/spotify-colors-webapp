@@ -1,19 +1,24 @@
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import useTheme from '../../hooks/useTheme';
 import styles from '../../styles/Navigation.module.scss';
-import SidebarToggle from './SidebarToggle';
 import Navigation from './Navigation';
+import SidebarToggle from './SidebarToggle';
 
 const sidebar = {
-    open: (height = 1000) => ({
+    open: (height) => ({
         clipPath: `circle(${height}px at 40px 40px)`,
         height: height,
         transition: {
             clipPath: {
                 type: "spring",
-                stiffness: 40,
+                stiffness: 45,
+                restDelta: 2
+            },
+            height: {
+                type: "spring",
+                stiffness: 65,
                 restDelta: 2
             }
         }
@@ -55,24 +60,31 @@ const sidebar = {
 const Sidebar = (props) => {
     const theme = useTheme()
 
-    const [isOpen, toggleOpen] = useCycle(false, true);
+    const { isOpen, toggleOpen, height } = props
+
     const [isHovering, setIsHovering] = useState(false)
 
     const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' })
 
+    const isExpanded = isOpen || isDesktop
+
+    if (!height) return null
     return (
         <motion.nav
             className={styles.sidebar}
             initial={false}
-            animate={isOpen || isDesktop ? "open" : isHovering ? "hovered" : "closed"}
+            animate={isExpanded ? "open" : isHovering ? "hovered" : "closed"}
         >
             <motion.div
                 className={styles.sidebarBackground}
-                style={{ backgroundColor: isOpen || isDesktop ? theme.surface2 : theme.text }}
+                style={{ backgroundColor: isExpanded ? theme.surface2 : theme.text }}
                 variants={sidebar}
-                custom={props.height}
+                custom={height}
             />
-            <Navigation />
+            {
+                isExpanded &&
+                <Navigation toggleOpen={toggleOpen} />
+            }
             {
                 !isDesktop &&
                 <SidebarToggle
